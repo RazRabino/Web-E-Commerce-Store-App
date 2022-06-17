@@ -13,13 +13,13 @@ const Container = styled.div`
 
 const Title = styled.h1`
     font-size: 70px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 `
 
 const Desc = styled.div`
     font-size: 24px;
     font-weight: 300;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     ${mobile({ textAlign: "center" })}
 `
 
@@ -42,8 +42,9 @@ const Input = styled.input`
 const Button = styled.button`
     flex: 1;
     border: none;
-    background-color: teal;
+    background-color: darkseagreen;
     color: white;
+    cursor: pointer;
 `
 
 const Newsletter = () => {

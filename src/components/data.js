@@ -4,7 +4,7 @@ export const sliderItems = [
         img: "https://cdn.pixabay.com/photo/2020/07/24/16/37/cactus-5434469_960_720.jpg",
         title: "SUMMER SALE",
         desc: "window shelf with succulent cactus pot.",
-        bg: "#E0FFFF",
+        bg: "#FFF0F5",
     },
 
     {
