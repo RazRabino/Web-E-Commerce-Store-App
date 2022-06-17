@@ -44,6 +44,12 @@ const Center = styled.div`
 
 const Logo = styled.h1`
     font-weight: bold;
+    cursor: pointer;
+
+    transition: all 0.5s ease;
+    &:hover {
+        color: darkseagreen;
+    }
 `
 
 const Right = styled.div`
