@@ -107,6 +107,9 @@ const Button = styled.button`
   }
 `;
 
+const Remove = styled.div``
+const Add = styled.div``
+
 const Product = () => {
   return (
     <Container>
@@ -148,7 +151,7 @@ const Product = () => {
               <Amount>1</Amount>
               <Add />
             </AmountContainer>
-            <Botton>Add to cart</Botton>
+            <Button>Add to cart</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>
