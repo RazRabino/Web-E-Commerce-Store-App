@@ -149,8 +149,8 @@ const SummaryButton = styled.button`
 const Cart = () => {
   return (
     <Container>
-      <Navbar />
       <Announcement />
+      <Navbar />
       <Wrapper>
         <Title>Your cart</Title>
         <Top>
