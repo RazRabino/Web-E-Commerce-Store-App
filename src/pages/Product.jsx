@@ -1,15 +1,19 @@
+import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { Add, Remove } from "@material-ui/icons";
+import { mobile } from "../responsive"
+
 
 const Container = styled.div``;
 
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  ${mobile({ padding: "10px", flexDirection:"column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -20,11 +24,13 @@ const Image = styled.img`
   width: 100%;
   object-fit: cover;
   higet: 90vh;
+  ${mobile({ height: "40vh" })}
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
-  padding: ppx 50px;
+  padding: 0px 50px;
+  ${mobile({ padding: "10px" })}
 `;
 
 const Title = styled.h1`
@@ -45,6 +51,7 @@ const FilterContainer = styled.div`
   width: 50%;
   justify-content: space-between;
   margin: 30px 0px;
+  ${mobile({ width: "100%" })}
 `;
 
 const Filter = styled.div`
@@ -52,7 +59,7 @@ const Filter = styled.div`
   align-item: center;
 `;
 
-const FilteTitle = styled.span`
+const FilterTitle = styled.span`
   font-weight: 200;
   font-size: 20px;
 `;
@@ -87,7 +94,7 @@ const Amount = styled.span`
 const AmountContainer = styled.div`
   align-item: center;
   diaplay: flex;
-  font-weight: 650;
+  font-weight: 700;
 `;
 
 const AddContainer = styled.div`
@@ -95,6 +102,7 @@ const AddContainer = styled.div`
   diaplay: flex;
   align-item: center;
   justify-content: space-between;
+  ${mobile({ width: "100%" })}
 `;
 
 const Button = styled.button`
@@ -126,15 +134,15 @@ const Product = () => {
           <Price>200$</Price>
           <FilterContainer>
             <Filter>
-              <FilteTitle>Color</FilteTitle>
+              <FilterTitle>Color</FilterTitle>
               <FilterColor color="green" />
               <FilterColor color="purple" />
               <FilterColor color="red" />
             </Filter>
             <Filter>
-              <FilteTitle>Size</FilteTitle>
+              <FilterTitle>Size</FilterTitle>
               <FilterSize>
-                = <FilterSizeOption>Big</FilterSizeOption>
+                <FilterSizeOption>Big</FilterSizeOption>
                 <FilterSizeOption>Medium</FilterSizeOption>
                 <FilterSizeOption>Small</FilterSizeOption>
               </FilterSize>
