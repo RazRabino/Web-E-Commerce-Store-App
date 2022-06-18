@@ -4,7 +4,9 @@ import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import { Add, Remove } from "@material-ui/icons";
 import { mobile } from "../responsive"
+
 
 const Container = styled.div``;
 
@@ -71,7 +73,7 @@ const FilterColor = styled.div`
   cursor: pointer;
 `;
 
-const FilterSize = styled.selsct`
+const FilterSize = styled.select`
   marin-left: 10px;
   padding: 5px;
 `;
@@ -120,9 +122,6 @@ const Product = () => {
       <Navbar />
       <Announcement />
       <Wrapper>
-        <ImgContainer>
-          <Image src="https://images.squarespace-cdn.com/content/v1/5edf93b24a82ea1a92337c02/1592582198484-2UWO6V44TYAEFANH91GL/The-Succulent-Shop-Plant-Shop-Kits3.jpg?format=1000w" />
-        </ImgContainer>
         <InfoContainer>
           <Title>Build your own succulent kit</Title>
           <Desc>
@@ -158,9 +157,10 @@ const Product = () => {
             <Button>Add to cart</Button>
           </AddContainer>
         </InfoContainer>
+        <ImgContainer>
+          <Image src="https://images.squarespace-cdn.com/content/v1/5edf93b24a82ea1a92337c02/1592582198484-2UWO6V44TYAEFANH91GL/The-Succulent-Shop-Plant-Shop-Kits3.jpg?format=1000w" />
+        </ImgContainer>
       </Wrapper>
-      <Newsletter />
-      <Footer />
     </Container>
   );
 };
