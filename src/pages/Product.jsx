@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
+import { Add, Remove } from "@material-ui/icons";
 
 const Container = styled.div``;
 
@@ -106,10 +107,6 @@ const Button = styled.button`
     bacground-color: red;
   }
 `;
-
-const Remove = styled.span``;
-
-const Add = styled.span``;
 
 const Product = () => {
   return (
