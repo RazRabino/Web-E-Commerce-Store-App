@@ -16,7 +16,7 @@ const FillterContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Fillter = styled.div`
+const Filter = styled.div`
   margin: 20px;
 `;
 
