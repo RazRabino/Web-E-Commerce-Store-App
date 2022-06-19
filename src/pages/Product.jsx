@@ -6,6 +6,7 @@ import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 
+
 const Container = styled.div``;
 
 const Wrapper = styled.div`
