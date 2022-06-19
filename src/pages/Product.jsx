@@ -2,9 +2,9 @@ import { Add, Remove } from "@material-ui/icons";
 import styled from "styled-components";
 import Navbar from "../components/Navbar";
 import Announcement from "../components/Announcement";
-//import Newsletter from "../components/Newsletter";
-//import Footer from "../components/Footer";
-import { mobile } from "../responsive"
+import Newsletter from "../components/Newsletter";
+import Footer from "../components/Footer";
+import { mobile } from "../responsive";
 
 
 const Container = styled.div``;
@@ -12,7 +12,7 @@ const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-  ${mobile({ padding: "10px", flexDirection:"column" })}
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
@@ -22,8 +22,8 @@ const ImgContainer = styled.div`
 const Image = styled.img`
   width: 100%;
   object-fit: cover;
-  higet: 90vh;
-  ${mobile({ height: "40vh" })}
+  height: 90vh;
+  ${mobile({ height: "20vh" })}
 `;
 
 const InfoContainer = styled.div`
