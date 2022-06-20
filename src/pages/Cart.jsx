@@ -173,14 +173,14 @@ const Cart = () => {
       try {
         const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
-          amount: 500,
+          amount: cart.total,
         })
         history.push("/success", {
           stripeData: res.data,
           products: cart.total, })
       } catch {}
     }
-    stripeToken && makeRequest()
+    stripeToken && cart.total > 0 &&makeRequest()
   }, [stripeToken, cart, history])
 
   return (
@@ -218,7 +218,8 @@ const Cart = () => {
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  <Add />
+                  {//TODO: add handler for add and remove in cart that remove the item if quantity === 0
+                  }<Add />
                   <ProductAmount>{product.quantity}</ProductAmount>
                   <Remove />
                 </ProductAmountContainer>
