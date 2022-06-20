@@ -29,18 +29,21 @@ export const categories = [
         id: 1,
         img: "https://cdn.pixabay.com/photo/2020/07/24/16/37/cactus-5434469_960_720.jpg",
         title: "SUMMER SALE",
+        cat: "raz",
     },
 
     {
         id: 2,
         img: "https://cdn.pixabay.com/photo/2017/07/30/23/38/cactus-2556000_960_720.jpg",
         title: "AUTUMN SALE",
+        cat: "cactus",
     },
 
     {
         id: 3,
         img: "https://cdn.pixabay.com/photo/2017/07/30/23/59/garlic-2556022_960_720.jpg",
         title: "WINTER SALE",
+        cat: "green",
     },
 ]
 
