@@ -41,11 +41,6 @@ const TopButton = styled.button`
   color: ${(props) => props.type === "filled" && "white"};
 `
 
-
-const TopTexts = styled.div`
-  ${mobile({ display: "none" })};
-`
-
 const TopTexts = styled.div`
   ${mobile({ display: "none" })};
 `
@@ -139,12 +134,6 @@ const Summary = styled.div`
   border-radius: 10px;
   padding: 20px;
   height: 100%;
-`
-
-const ProductPrice = styled.div`
-  font-size: 30;
-  font-weight: 170;
-  ${mobile({ marginBottom: "20px" })}
 `
 
 const SummaryTitle = styled.h1`
