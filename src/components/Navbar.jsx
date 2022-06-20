@@ -74,6 +74,10 @@ const MenuItem = styled.div`
     margin-left: 25px;
     ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 
+    transition: all 0.5s ease;
+    &:hover {
+      color: darkseagreen;
+    }
 `;
 
 const Navbar = () => {
@@ -83,16 +87,26 @@ const Navbar = () => {
         <Container>
             <Wrapper>
                 <Left>
-                    <Logo>
-                        Kaktus.
-                    </Logo>
+                    <Link to="/" style={{ textDecoration: 'none'}}>
+                      <Logo>
+                          Kaktus.
+                      </Logo>
+                    </Link>
                 </Left>
                 <Center>
                     
                 </Center>
                 <Right>
-                    <MenuItem>SIGN IN</MenuItem>
-                    <MenuItem>REGISTER</MenuItem>
+                    <MenuItem>
+                      <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                        SIGN IN
+                      </Link>
+                    </MenuItem>
+                    <MenuItem>
+                      <Link to="/register" style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                        REGISTER
+                      </Link>
+                    </MenuItem>
                     <MenuItem><Language>EN</Language></MenuItem>
                     <MenuItem>
                         <SearchContainer>
