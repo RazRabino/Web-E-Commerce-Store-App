@@ -1,7 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
-import { Badge } from "@material-ui/core";
+import React from 'react'
+import styled from 'styled-components'
+import { Search, ShoppingCartOutlined } from '@material-ui/icons'
+import { Badge } from '@material-ui/core'
+import { useSelector } from 'react-redux'
+import { Link } from "react-router-dom"
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -75,34 +77,40 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = () => {
-  return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <Logo>Kaktus.</Logo>
-        </Left>
-        <Center></Center>
-        <Right>
-          <MenuItem>SIGN IN</MenuItem>
-          <MenuItem>REGISTER</MenuItem>
-          <MenuItem>
-            <Language>EN</Language>
-          </MenuItem>
-          <MenuItem>
-            <SearchContainer>
-              <Input placeholder="Search" />
-              <Search style={{ color: "gray", fontSize: 16 }} />
-            </SearchContainer>
-          </MenuItem>
-          <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
-        </Right>
-      </Wrapper>
-    </Container>
-  );
-};
+    const quantity = useSelector(state => state.cart.quantity)
+
+    return (
+        <Container>
+            <Wrapper>
+                <Left>
+                    <Logo>
+                        Kaktus.
+                    </Logo>
+                </Left>
+                <Center>
+                    
+                </Center>
+                <Right>
+                    <MenuItem>SIGN IN</MenuItem>
+                    <MenuItem>REGISTER</MenuItem>
+                    <MenuItem><Language>EN</Language></MenuItem>
+                    <MenuItem>
+                        <SearchContainer>
+                            <Input/>
+                            <Search style={{color:"gray", fontSize:16}}/>
+                        </SearchContainer>
+                    </MenuItem>
+                    <Link to="/cart">
+                        <MenuItem>
+                            <Badge badgeContent={quantity} color="primary">
+                                <ShoppingCartOutlined/>
+                            </Badge>
+                        </MenuItem>
+                    </Link>
+                </Right>
+            </Wrapper>
+        </Container>
+    )
+}
 
 export default Navbar;

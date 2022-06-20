@@ -15,31 +15,31 @@ const Container = styled.div`
     display: flex;
     align-item: center;
     justify-content: center;
-`;
+`
 
 const Wrapper = styled.div`
   paddin: 20%;
   width: 30%;
   background-color: white;
   ${mobile({ width: "80%" })}
-`;
+`
 
 const Title = styled.h1`
   font-size: 25px;
   font-weight: 250;
-`;
+`
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const Input = styled.input`
     flex: 1;
     min-width: 40%;
     margin: 10px 0px;
     padding 12px;    
-`;
+`
 
 const Button = styled.button`
   width: 40%;
@@ -49,14 +49,14 @@ const Button = styled.button`
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
-`;
+`
 
 const Link = styled.a`
   margin: 5px 0px;
   font-size: 15px;
   text-decoration: underline;
   crsor: pointer;
-`;
+`
 
 const Login = () => {
   return (
@@ -72,6 +72,6 @@ const Login = () => {
         </Form>
       </Wrapper>
     </Container>
-  );
-};
-export default Login;
+  )
+}
+export default Login
