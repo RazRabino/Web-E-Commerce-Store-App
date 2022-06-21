@@ -8,6 +8,13 @@ import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 import { mobile } from "../responsive";
 
+const Subcontainer = styled.div`
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  border-color: lightgray;
+`
+
 const Container = styled.div``;
 
 const Title = styled.h1`
@@ -54,8 +61,9 @@ const ProductList = () => {
 
   return (
     <Container>
-      <Navbar />
       <Announcement />
+      <Navbar />
+      <Subcontainer>
       <Title>{cat}</Title>
       <FillterContainer>
         <Filter>
@@ -91,7 +99,8 @@ const ProductList = () => {
         </Filter>
       </FillterContainer>
       <Products cat={cat} filters={filters} sort={sort}/>
-      <Newsletter />
+      </Subcontainer>
+      <Newsletter/>
       <Footer />
     </Container>
   );
