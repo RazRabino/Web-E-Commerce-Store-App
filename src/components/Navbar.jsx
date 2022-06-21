@@ -108,7 +108,6 @@ const Navbar = () => {
                         REGISTER
                       </Link>
                     </MenuItem>
-                    <MenuItem><Language>EN</Language></MenuItem>
                     <MenuItem>
                         <SearchContainer>
                             <Input/>
