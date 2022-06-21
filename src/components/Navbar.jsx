@@ -52,6 +52,7 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   cursor: pointer;
+  color: lightgray;
   ${mobile({ fontSize: "24px" })}
 
   transition: all 0.5s ease;

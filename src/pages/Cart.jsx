@@ -15,6 +15,7 @@ const KEY = process.env.REACT_APP_STRIPE
 const Container = styled.div``
 
 const Wrapper = styled.div`
+  min-height: 48vh;
   padding: 20px;
   ${mobile({ padding: "10px" })};
 `
@@ -190,14 +191,6 @@ const Cart = () => {
     <Announcement />
     <Wrapper>
       <Title>YOUR BAG</Title>
-      <Top>
-        <TopButton>CONTINUE SHOPPING</TopButton>
-        <TopTexts>
-          <TopText>Shopping Bag(2)</TopText>
-          <TopText>Your Wishlist (0)</TopText>
-        </TopTexts>
-        <TopButton type="filled">CHECKOUT NOW</TopButton>
-      </Top>
       <Bottom>
         <Info>
           {cart.products.map((product) => (
@@ -249,6 +242,9 @@ const Cart = () => {
             token={onToken}
             stripeKey={KEY}>
             <Button>CHECKOUT NOW</Button>
+            <Button>
+              CONTINUE SHOPPING
+            </Button>
           </StripeCheckout>
         </Summary>
       </Bottom>
