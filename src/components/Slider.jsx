@@ -95,9 +95,7 @@ const Slider = () => {
     }
   };
 
-  {
-    //TODO: make slider buy now button redirect to actual products and "steal" it's information for the slider.
-  }
+  //TODO: make slider buy now button redirect to actual products and "steal" it's information for the slider.
 
   return (
     <Container>

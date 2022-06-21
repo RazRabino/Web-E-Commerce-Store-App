@@ -18,6 +18,10 @@ const Wrapper = styled.div`
   min-height: 48vh;
   padding: 20px;
   ${mobile({ padding: "10px" })};
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  border-color: lightgray;
 `
 
 const Title = styled.h1`
@@ -38,6 +42,7 @@ const Info = styled.div`
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
   ${mobile({ flexDirection: "column" })};
 `
 
@@ -94,12 +99,6 @@ const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
   ${mobile({ marginBottom: "20px" })};
-`
-
-const Hr = styled.hr`
-  background-color: #eee;
-  border: none;
-  height: 1px;
 `
 
 const Summary = styled.div`
@@ -160,8 +159,8 @@ const Cart = () => {
 
   return (
     <Container>
-    <Navbar />
     <Announcement />
+    <Navbar />
     <Wrapper>
       <Title>YOUR BAG</Title>
       <Bottom>
@@ -196,7 +195,7 @@ const Cart = () => {
               </PriceDetail>
             </Product>
           ))}
-          <Hr />
+          
         </Info>
         <Summary>
           <SummaryTitle>ORDER SUMMARY</SummaryTitle>

@@ -11,10 +11,7 @@ const Container = styled.div`
 `;
 
 const Categories = () => {
-
-  {
-    //TODO: update category information with relevent data and maybe add categories manu in navbar with all the categories(mapping of mongodb database)
-  }
+  //TODO: update category information with relevent data and maybe add categories manu in navbar with all the categories(mapping of mongodb database)
 
   return (
     <Container>
