@@ -14,6 +14,9 @@ import { useDispatch } from "react-redux"
 const Container = styled.div``
 
 const Wrapper = styled.div`
+  border-top-style: solid;
+  border-width: 0.5px;
+  border-color: lightgray;
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection:"column" })};
@@ -154,8 +157,8 @@ const Product = () => {
 
   return (
     <Container>
-      <Navbar />
       <Announcement />
+      <Navbar />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />
