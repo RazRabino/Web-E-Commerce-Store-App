@@ -94,6 +94,11 @@ const Slider = () => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
+
+  {
+    //TODO: make slider buy now button redirect to actual products and "steal" it's information for the slider.
+  }
+
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
