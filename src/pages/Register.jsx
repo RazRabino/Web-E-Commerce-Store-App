@@ -5,7 +5,6 @@ import Navbar from "../components/Navbar";
 import { useState } from "react";
 import { register } from "../redux/apiCalls";
 import { useDispatch, useSelector } from "react-redux";
-const CryptoJS = require("../store_api/node_modules/crypto-js");
 
 const SuperContainer = styled.div``
 
