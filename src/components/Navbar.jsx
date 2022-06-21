@@ -75,6 +75,10 @@ const MenuItem = styled.div`
     }
 `;
 
+{
+  //TODO: make navbar working, i think that there is a info about it in the videos.
+}
+
 const Navbar = () => {
     const quantity = useSelector(state => state.cart.quantity)
 

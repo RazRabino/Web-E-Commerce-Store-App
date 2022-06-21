@@ -78,6 +78,11 @@ const Payment = styled.img`
 `
   
 const Footer = () => {
+
+    {
+        //TODO: update footer data and make links work
+    }
+
     return (
         <Container>
             <Left>
@@ -129,9 +134,6 @@ const Footer = () => {
                 <MailOutline style={{marginRight:"10px"}} /> contact@Kaktus.com
                 </ContactItem>
                 <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
-                {
-                //TODO: make newsletter email work
-                }
             </Right>
         </Container>
     )

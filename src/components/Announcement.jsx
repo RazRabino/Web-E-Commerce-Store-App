@@ -15,7 +15,7 @@ const Announcement = () => {
   return (
     <Container>
         {
-          //TODO: delte images from src/components/images if we not using it.
+          //TODO: delete images from src/components/images if we not using it.
         }
         Super Deal - Free Shipping on All Orders 🚀
     </Container>
