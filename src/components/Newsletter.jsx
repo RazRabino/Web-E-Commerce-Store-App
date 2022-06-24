@@ -48,6 +48,8 @@ const Button = styled.button`
 `
 
 const Newsletter = () => {
+  //TODO: make newsletter email work
+
   return (
     <Container>
       <Title>Newsletter</Title>

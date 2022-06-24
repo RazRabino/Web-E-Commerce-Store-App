@@ -78,6 +78,8 @@ const Payment = styled.img`
 `
   
 const Footer = () => {
+    //TODO: update footer data and make links work
+
     return (
         <Container>
             <Left>

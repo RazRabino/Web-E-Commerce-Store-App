@@ -1,66 +1,74 @@
-import { Add, Remove } from "@material-ui/icons";
-import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Announcement from "../components/Announcement";
-import Newsletter from "../components/Newsletter";
-import Footer from "../components/Footer";
+import { Add, Remove } from "@material-ui/icons"
+import styled from "styled-components"
+import Announcement from "../components/Announcement"
+import Footer from "../components/Footer"
+import Navbar from "../components/Navbar"
+import Newsletter from "../components/Newsletter"
 import { mobile } from "../responsive"
+import { useLocation } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { publicRequest } from "../requestMethods"
+import { addProduct } from "../redux/cartRedux"
+import { useDispatch } from "react-redux"
 
-const Container = styled.div``;
+const Container = styled.div``
 
 const Wrapper = styled.div`
+  border-top-style: solid;
+  border-width: 0.5px;
+  border-color: lightgray;
   padding: 50px;
   display: flex;
-  ${mobile({ padding: "10px", flexDirection:"column" })}
-`;
+  ${mobile({ padding: "10px", flexDirection:"column" })};
+`
 
 const ImgContainer = styled.div`
   flex: 1;
-`;
+`
 
 const Image = styled.img`
   width: 100%;
   object-fit: cover;
   higet: 90vh;
-  ${mobile({ height: "40vh" })}
-`;
+  ${mobile({ height: "40vh" })};
+`
 
 const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
-  ${mobile({ padding: "10px" })}
-`;
+  ${mobile({ padding: "10px" })};
+`
 
 const Title = styled.h1`
   font-weight: 200;
-`;
+`
 
 const Desc = styled.p`
   margin: 20px 0px;
-`;
+`
 
 const Price = styled.span`
   font-weight: 100;
   font-size: 40px;
-`;
+`
 
 const FilterContainer = styled.div`
   display: flex;
   width: 50%;
   justify-content: space-between;
   margin: 30px 0px;
-  ${mobile({ width: "100%" })}
-`;
+  ${mobile({ width: "100%" })};
+`
 
 const Filter = styled.div`
   display: flex;
   align-item: center;
-`;
+`
 
 const FilterTitle = styled.span`
   font-weight: 200;
   font-size: 20px;
-`;
+`
 
 const FilterColor = styled.div`
   width: 20px;
@@ -69,14 +77,14 @@ const FilterColor = styled.div`
   background-color: ${(props) => props.color};
   margin: 0px 5px;
   cursor: pointer;
-`;
+`
 
 const FilterSize = styled.select`
   marin-left: 10px;
   padding: 5px;
-`;
+`
 
-const FilterSizeOption = styled.option``;
+const FilterSizeOption = styled.option``
 
 const Amount = styled.span`
   width: 30px;
@@ -87,21 +95,21 @@ const Amount = styled.span`
   align-item: center;
   justify-content: center;
   margin: 0px 5px;
-`;
+`
 
 const AmountContainer = styled.div`
   align-item: center;
   diaplay: flex;
   font-weight: 700;
-`;
+`
 
 const AddContainer = styled.div`
   width: 50%;
   diaplay: flex;
   align-item: center;
   justify-content: space-between;
-  ${mobile({ width: "100%" })}
-`;
+  ${mobile({ width: "100%" })};
+`
 
 const Button = styled.button`
   padding: 15px;
@@ -111,59 +119,84 @@ const Button = styled.button`
   font-weight: 550;
   &:hover {
     bacground-color: red;
-  }
-`;
-
-const Remove = styled.span``;
-
-const Add = styled.span``;
+  };
+`
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+  const [quantity, setQuantity] = useState(1);
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/" + id);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+
+  const handleQuantity = (type) => {
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
+    }
+  };
+
+  const handleClick = () => {
+    dispatch(
+      addProduct({ ...product, quantity, color, size })
+    );
+  };
+
   return (
     <Container>
-      <Navbar />
       <Announcement />
+      <Navbar />
       <Wrapper>
+        <ImgContainer>
+          <Image src={product.img} />
+        </ImgContainer>
         <InfoContainer>
-          <Title>Build your own succulent kit</Title>
-          <Desc>
-            These DIY Succulent Kits come with all materials needed to create
-            your own treasure at home! Buy it for you or buy one as a gift for a
-            friend or loved one! Kit comes with instructions on how to plant and
-            care for your succulent. Select the different style numbers to view
-            the pots available!
-          </Desc>
-          <Price>200$</Price>
+          <Title>{product.title}</Title>
+          <Desc>{product.desc}</Desc>
+          <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-              <FilterColor color="green" />
-              <FilterColor color="purple" />
-              <FilterColor color="red" />
+              {product.color?.map((c) => (
+                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+              ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize>
-                <FilterSizeOption>Big</FilterSizeOption>
-                <FilterSizeOption>Medium</FilterSizeOption>
-                <FilterSizeOption>Small</FilterSizeOption>
+              <FilterSize onChange={(e) => setSize(e.target.value)}>
+                {product.size?.map((s) => (
+                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
+                ))}
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove />
-              <Amount>1</Amount>
-              <Add />
+              <Remove onClick={() => handleQuantity("dec")} />
+              <Amount>{quantity}</Amount>
+              <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
-            <Button>Add to cart</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
-        <ImgContainer>
-          <Image src="https://images.squarespace-cdn.com/content/v1/5edf93b24a82ea1a92337c02/1592582198484-2UWO6V44TYAEFANH91GL/The-Succulent-Shop-Plant-Shop-Kits3.jpg?format=1000w" />
-        </ImgContainer>
       </Wrapper>
+      <Newsletter />
+      <Footer />
     </Container>
   );
 };
+
 export default Product;
