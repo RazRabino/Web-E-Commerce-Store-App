@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Search, ShoppingCartOutlined } from '@material-ui/icons'
-import { Badge } from '@material-ui/core'
-import { useSelector } from 'react-redux'
-import { Link } from "react-router-dom"
+import React from "react";
+import styled from "styled-components";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Badge } from "@material-ui/core";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -78,49 +78,51 @@ const MenuItem = styled.div`
 //TODO: make navbar working, i think that there is a info about it in the videos.
 
 const Navbar = () => {
-    const quantity = useSelector(state => state.cart.quantity)
+  const quantity = useSelector((state) => state.cart.quantity);
 
-    return (
-        <Container>
-            <Wrapper>
-                <Left>
-                    <Link to="/" style={{ textDecoration: 'none'}}>
-                      <Logo>
-                          Kaktus.
-                      </Logo>
-                    </Link>
-                </Left>
-                <Center>
-                    
-                </Center>
-                <Right>
-                    <MenuItem>
-                      <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                        SIGN IN
-                      </Link>
-                    </MenuItem>
-                    <MenuItem>
-                      <Link to="/register" style={{ color: 'inherit', textDecoration: 'inherit'}}>
-                        REGISTER
-                      </Link>
-                    </MenuItem>
-                    <MenuItem>
-                        <SearchContainer>
-                            <Input/>
-                            <Search style={{color:"gray", fontSize:16}}/>
-                        </SearchContainer>
-                    </MenuItem>
-                    <Link to="/cart">
-                        <MenuItem>
-                            <Badge badgeContent={quantity} color="primary">
-                                <ShoppingCartOutlined/>
-                            </Badge>
-                        </MenuItem>
-                    </Link>
-                </Right>
-            </Wrapper>
-        </Container>
-    )
-}
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <Logo>Kaktus.</Logo>
+          </Link>
+        </Left>
+        <Center></Center>
+        <Right>
+          <MenuItem>
+            <Link
+              to="/login"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
+              SIGN IN
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <Link
+              to="/register"
+              style={{ color: "inherit", textDecoration: "inherit" }}
+            >
+              REGISTER
+            </Link>
+          </MenuItem>
+          <MenuItem>
+            <SearchContainer>
+              <Input />
+              <Search style={{ color: "gray", fontSize: 16 }} />
+            </SearchContainer>
+          </MenuItem>
+          <Link to="/cart">
+            <MenuItem>
+              <Badge badgeContent={quantity} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
+          </Link>
+        </Right>
+      </Wrapper>
+    </Container>
+  );
+};
 
 export default Navbar;
