@@ -11,10 +11,12 @@ export default function FeaturedInfo() {
     const getIncome = async () => {
       try {
         const res = await userRequest.get("orders/income");
+        if (!res || !res.data || res.data.length < 2) return;
+        console.log(res.data.length);
         setIncome(res.data);
         setPerc((res.data[1].total * 100) / res.data[0].total - 100);
       } catch {
-        throw console.error();
+        console.error();
       }
     };
     getIncome();

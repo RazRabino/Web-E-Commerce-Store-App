@@ -40,7 +40,7 @@ const Login = () => {
         }}
         type="password"
         placeholder="password"
-        nChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => setPassword(e.target.value)}
       />
       <button
         onClick={handleClick}
