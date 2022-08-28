@@ -10,6 +10,7 @@ export default function WidgetSm() {
     const getUsers = async () => {
       try {
         const res = await userRequest.get("users/?new=true");
+        console.log(res)
         setUsers(res.data);
       } catch {
         throw console.error();
@@ -23,11 +24,11 @@ export default function WidgetSm() {
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
         {users.map((user) => (
-          <li className="widgetSmListItem">
+          <li className="widgetSmListItem" key={user._id}>
             <img
               src={
                 user.img ||
-                "https://images.pexels.com/photos/3992656/pexels-photo-3992656.png?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                "https://evawintl.org/people/sandra-henriquez/"
               }
               alt=""
               className="widgetSmImg"

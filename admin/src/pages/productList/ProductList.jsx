@@ -6,14 +6,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../redux/apiCalls";
 import { deleteProduct } from "./../../redux/apiCalls";
+import { useState } from "react";
 
 export default function ProductList() {
   const dispatch = useDispatch();
   //TODO dosent work!!!
   const products = useSelector((state) => state?.product?.products);
-
   useEffect(() => {
-    getProducts(useEffect);
+    getProducts(dispatch);
   }, [dispatch]);
 
   const handleDelete = (id) => {

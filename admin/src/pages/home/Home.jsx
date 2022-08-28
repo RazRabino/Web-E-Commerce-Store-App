@@ -29,21 +29,20 @@ export default function Home() {
     []
   );
 
-  // useEffect(() => {
-  //   const getStats = async () => {
-  //     // try {
-  //     //   const res = await userRequest.get("/users/stats");
-  //     //   res.data.map((item) =>
-  //     //     setUserStats((prev) => [
-  //     //       ...prev,
-  //     //       { name: MONTHS[item._id - 1], "Active User": item.total },
-  //     //     ])
-  //     //   );
-  //     // } catch {}
-  //   };
-  //   getStats();
-  // }, [MONTHS]);
-
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await userRequest.get("/users/stats");
+        res.data.map((item) =>
+          setUserStats((prev) => [
+            ...prev,
+            { name: MONTHS[item._id - 1], "Active User": item.total },
+          ])
+        );
+      } catch {}
+    };
+    getStats();
+  }, [MONTHS]);
   return (
     <div className="home">
       <FeaturedInfo />
@@ -54,7 +53,7 @@ export default function Home() {
         dataKey="Active User"
       />
       <div className="homeWidgets">
-        {/* <WidgetSm /> */}
+        <WidgetSm /> 
         <WidgetLg />
       </div>
     </div>
