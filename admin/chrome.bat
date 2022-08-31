@@ -1,0 +1,1 @@
+"C:\Program Files\Google\Chrome\Application\chrome.exe" --user-data-dir="C://ChromeDevSession" --disable-web-security http://localhost:3000
