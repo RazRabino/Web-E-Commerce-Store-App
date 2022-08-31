@@ -1,10 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-const BASE_URL = "http://localhost:5000/api/";
-const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
-const currentUser = user && JSON.parse(user).currentUser;
+const BASE_URL = 'http://localhost:3000/api/';
+const user = JSON.parse(localStorage.getItem('persist:root'));
+const currentUser = JSON.parse(user.currentUser);
+console.log('currentUser', currentUser);
 const TOKEN = currentUser?.accessToken;
-
+console.log('TOKEN', TOKEN);
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
   data: {

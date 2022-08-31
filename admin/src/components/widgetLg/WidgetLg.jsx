@@ -10,7 +10,7 @@ export default function WidgetLg() {
     const getOrders = async () => {
       try {
         const res = await userRequest.get("orders");
-        setOrders(res.data);
+        setOrders(res?.data);
       } catch {
         console.error();
       }
@@ -31,15 +31,15 @@ export default function WidgetLg() {
           <th className="widgetLgTh">Amount</th>
           <th className="widgetLgTh">Status</th>
         </tr>
-        {orders.map((order) => (
-          <tr className="widgetLgTr" key={order._id}>
+        {orders?.map((order) => (
+          <tr className="widgetLgTr" key={order?._id}>
             <td className="widgetLgUser">
-              <span className="widgetLgName">{order.userId}</span>
+              <span className="widgetLgName">{order?.userId}</span>
             </td>
-            <td className="widgetLgDate">$ {format(order.createdAt)}</td>
-            <td className="widgetLgAmount">$ {order.amount}</td>
+            <td className="widgetLgDate"> {order?.createdAt || "No created date"}</td>
+            <td className="widgetLgAmount">$ {order?.amount}</td>
             <td className="widgetLgStatus">
-              <Button type={order.status} />
+              <Button type={order?.status} />
             </td>
           </tr>
         ))}

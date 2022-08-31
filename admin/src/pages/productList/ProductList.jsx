@@ -13,7 +13,7 @@ export default function ProductList() {
   //TODO dosent work!!!
   const products = useSelector((state) => state?.product?.products);
   useEffect(() => {
-    getProducts(dispatch);
+    getProducts(dispatch)
   }, [dispatch]);
 
   const handleDelete = (id) => {
@@ -60,20 +60,18 @@ export default function ProductList() {
       },
     },
   ];
-  if (!products) {
-    console.log("no products");
-    return <p>No products</p>;
-  }
+
   return (
-    <div className="productList">
-      <DataGrid
-        rows={products}
-        disableSelectionOnClick
-        columns={columns}
-        getRowId={(row) => row._id}
-        pageSize={8}
-        checkboxSelection
-      />
-    </div>
+    products?.map((product)=> console.log(product))
+    // <div className="productList">
+    //   <DataGrid
+    //     rows={products}
+    //     disableSelectionOnClick
+    //     columns={columns}
+    //     getRowId={(row) => row._id}
+    //     pageSize={8}
+    //     checkboxSelection
+    //   />
+    // </div>
   );
 }
