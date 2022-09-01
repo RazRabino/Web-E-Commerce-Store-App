@@ -75,12 +75,49 @@ const MenuItem = styled.div`
     }
 `;
 
-//TODO: make navbar working, i think that there is a info about it in the videos.
-
 const Navbar = () => {
     const quantity = useSelector(state => state.cart.quantity)
+    const user = useSelector((state) => state.user.currentUser)
 
-    return (
+    function myFunc(){
+      alert("You Clicked me");
+    }
+
+    if(user) {
+      return (
+        <Container>
+            <Wrapper>
+                <Left>
+                    <Link to="/" style={{ textDecoration: 'none'}}>
+                      <Logo>
+                          Kaktus.
+                      </Logo>
+                    </Link>
+                </Left>
+                <Center>
+                    
+                </Center>
+                <Right>
+                    <MenuItem>
+                      <Link to="/" onClick={() => localStorage.clear()} style={{ color: 'inherit', textDecoration: 'inherit'}} >
+                        <Link to="/" onClick={() => window.location.href = window.location.pathname + window.location.search + window.location.hash} style={{ color: 'inherit', textDecoration: 'inherit'}} >
+                        LOG OUT
+                        </Link>
+                      </Link>
+                    </MenuItem>
+                    <Link to="/cart">
+                        <MenuItem>
+                            <Badge badgeContent={quantity} color="primary">
+                                <ShoppingCartOutlined/>
+                            </Badge>
+                        </MenuItem>
+                    </Link>
+                </Right>
+            </Wrapper>
+        </Container>
+      )
+    } else {
+      return (
         <Container>
             <Wrapper>
                 <Left>
@@ -104,12 +141,6 @@ const Navbar = () => {
                         REGISTER
                       </Link>
                     </MenuItem>
-                    <MenuItem>
-                        <SearchContainer>
-                            <Input/>
-                            <Search style={{color:"gray", fontSize:16}}/>
-                        </SearchContainer>
-                    </MenuItem>
                     <Link to="/cart">
                         <MenuItem>
                             <Badge badgeContent={quantity} color="primary">
@@ -120,7 +151,9 @@ const Navbar = () => {
                 </Right>
             </Wrapper>
         </Container>
-    )
+      )
+    }
+    
 }
 
 export default Navbar;

@@ -3,11 +3,11 @@ import Announcement from "../components/Announcement"
 import Footer from "../components/Footer"
 import styled from "styled-components"
 import StripeCheckout from "react-stripe-checkout"
-import { Add, Remove } from "@material-ui/icons"
 import { useSelector } from "react-redux"
 import { useEffect, useState } from "react"
 import { userRequest } from "../requestMethods"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { mobile } from "../responsive"
 
 const KEY = process.env.REACT_APP_STRIPE
@@ -66,15 +66,6 @@ const ProductName = styled.span``
 
 const ProductId = styled.span``
 
-const ProductColor = styled.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background-color: ${(props) => props.color};
-`
-
-const ProductSize = styled.span``
-
 const PriceDetail = styled.div`
   flex: 1;
   display: flex;
@@ -128,6 +119,7 @@ const SummaryItemPrice = styled.span``
 const Button = styled.button`
   width: 100%;
   padding: 10px;
+  margin-top: 5px;
   background-color: black;
   color: white;
   font-weight: 600;
@@ -174,22 +166,17 @@ const Cart = () => {
                     <b>Product:</b> {product.title}
                   </ProductName>
                   <ProductId>
-                    <b>ID:</b> {product._id}
+                    <b>Product ID:</b> {product._id}
                   </ProductId>
-                  <ProductColor color={product.color} />
-                  <ProductSize>
-                    <b>Size:</b> {product.size}
-                  </ProductSize>
                 </Details>
               </ProductDetail>
               <PriceDetail>
                 <ProductAmountContainer>
-                  {//TODO: add handler for add and remove in cart that remove the item if quantity === 0
-                  }<Add />
-                  <ProductAmount>{product.quantity}</ProductAmount>
-                  <Remove />
+                  {}
+                  <ProductAmount>Quantity: {product.quantity}</ProductAmount>
+                  
                 </ProductAmountContainer>
-                <ProductPrice>
+                <ProductPrice>price: 
                   $ {product.price * product.quantity}
                 </ProductPrice>
               </PriceDetail>
@@ -214,10 +201,17 @@ const Cart = () => {
             token={onToken}
             stripeKey={KEY}>
             <Button>CHECKOUT NOW</Button>
-            <Button>
+          </StripeCheckout>
+          <Link to="/">
+            <Button>  
               CONTINUE SHOPPING
             </Button>
-          </StripeCheckout>
+          </Link>
+          <Link to="/cart" onClick={() => (cart.products = []) + (cart.quantity = 0) + (cart.total = 0)}>
+            <Button>
+              Clear Shopping Cart
+            </Button>
+          </Link>
         </Summary>
       </Bottom>
     </Wrapper>
@@ -226,3 +220,9 @@ const Cart = () => {
   )
 }
 export default Cart
+//console.log(JSON.stringify(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).cart).products))
+//localStorage.setItem("persist:root", localStorage.getItem("persist:root").replace(JSON.stringify(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).cart).products), ""))
+//localStorage.setItem("persist:root", localStorage.getItem("persist:root").replace(JSON.stringify(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).cart).products), "[{}]"))
+//.replace(JSON.stringify(JSON.parse(JSON.parse(localStorage.getItem("persist:root")).cart).products), "[{}]"))
+//console.log(localStorage.getItem("persist:root").slice(0, localStorage.getItem("persist:root").indexOf("[{")) + "[{" + localStorage.getItem("persist:root").slice(localStorage.getItem("persist:root").indexOf("}]")))
+//onClick={() => localStorage.setItem("persist:root", localStorage.getItem("persist:root").slice(0, localStorage.getItem("persist:root").indexOf("[{")) + "[{" + localStorage.getItem("persist:root").slice(localStorage.getItem("persist:root").indexOf("}]"))) + console.log(localStorage.getItem("persist:root")) + (cart.products = [])}

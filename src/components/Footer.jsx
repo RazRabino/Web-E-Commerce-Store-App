@@ -1,6 +1,7 @@
-import { Facebook, Instagram, MailOutline, Phone, Pinterest, Room, Twitter } from "@material-ui/icons"
+import { GitHub, MailOutline, Phone, Room} from "@material-ui/icons"
 import styled from "styled-components"
 import { mobile } from "../responsive"
+import { Link } from "react-router-dom"
   
 const Container = styled.div`
     display: flex;
@@ -78,8 +79,6 @@ const Payment = styled.img`
 `
   
 const Footer = () => {
-    //TODO: update footer data and make links work
-
     return (
         <Container>
             <Left>
@@ -90,33 +89,20 @@ const Footer = () => {
                     humour, or randomised words which don’t look even slightly believable.
                 </Desc>
                 <SocialContainer>
-                    <SocialIcon color="3B5999">
-                        <Facebook />
-                    </SocialIcon>
-                    <SocialIcon color="E4405F">
-                        <Instagram />
-                    </SocialIcon>
-                    <SocialIcon color="55ACEE">
-                        <Twitter />
-                    </SocialIcon>
-                    <SocialIcon color="E60023">
-                        <Pinterest />
+                    <SocialIcon>
+                        <a href="https://github.com/RazRabino/Web-E-Commerce-Store-App">
+                            <GitHub />
+                        </a>
                     </SocialIcon>
                 </SocialContainer>
             </Left>
             <Center>
                 <Title>Useful Links</Title>
                 <List>
-                    <ListItem>Home</ListItem>
-                    <ListItem>Cart</ListItem>
-                    <ListItem>Man Fashion</ListItem>
-                    <ListItem>Woman Fashion</ListItem>
-                    <ListItem>Accessories</ListItem>
-                    <ListItem>My Account</ListItem>
-                    <ListItem>Order Tracking</ListItem>
-                    <ListItem>Wishlist</ListItem>
-                    <ListItem>Wishlist</ListItem>
-                    <ListItem>Terms</ListItem>
+                    <ListItem><Link to="/" style={{ textDecoration: 'none'}}>Home</Link></ListItem>
+                    <ListItem><Link to="/cart" style={{ textDecoration: 'none'}}>Cart</Link></ListItem>
+                    <ListItem><Link to="/register" style={{ textDecoration: 'none'}}>Register</Link></ListItem>
+                    <ListItem><Link to="/login" style={{ textDecoration: 'none'}}>Log In</Link></ListItem>
                 </List>
             </Center>
             <Right>

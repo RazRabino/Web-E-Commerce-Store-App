@@ -109,8 +109,8 @@ const Login = () => {
             LOGIN
           </Button>
           {error && <Error>Something went wrong...</Error>}
-          {//TODO: of login doesnt work at the end, remove error msg
-          }<Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          {// user login failed or there is another problem in localstorage units
+          }
           <Link to="/register">CREATE A NEW ACCOUNT</Link>
         </Form>
       </Wrapper>
