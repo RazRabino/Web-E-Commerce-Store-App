@@ -48,7 +48,7 @@ const Button = styled.button`
 `
 
 const Newsletter = () => {
-  //TODO: make newsletter email work
+  // work with mailchimp integration, use it in real stores (free acount with 2500 mails per month)
 
   return (
     <Container>
@@ -56,8 +56,8 @@ const Newsletter = () => {
       <Desc>Get timely updates from your favorite products.</Desc>
       <InputContainer>
         <Input placeholder="Your e-mail" />
-        <Button>
-          <Send />
+        <Button onClick={() => alert("your E-Mail has been registered.") + window.location.reload() + (document.body.scrollTop = document.documentElement.scrollTop = 0)}>
+          <Send/>
         </Button>
       </InputContainer>
     </Container>

@@ -9,7 +9,7 @@ import { useLocation } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { publicRequest } from "../requestMethods"
 import { addProduct } from "../redux/cartRedux"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 const Container = styled.div``
 
@@ -53,16 +53,15 @@ const Price = styled.span`
 `
 
 const FilterContainer = styled.div`
-  display: flex;
-  width: 50%;
   justify-content: space-between;
-  margin: 30px 0px;
+  margin: 5px 0px;
   ${mobile({ width: "100%" })};
 `
 
 const Filter = styled.div`
   display: flex;
-  align-item: center;
+  align-item: left;
+  margin-top: 5px;
 `
 
 const FilterTitle = styled.span`
@@ -75,13 +74,12 @@ const FilterColor = styled.div`
   height: 20px;
   border-redius: 50%;
   background-color: ${(props) => props.color};
-  margin: 0px 5px;
+  margin: 4px 5px;
   cursor: pointer;
 `
 
 const FilterSize = styled.select`
-  marin-left: 10px;
-  padding: 5px;
+  margin: 4px 5px;
 `
 
 const FilterSizeOption = styled.option``
@@ -89,12 +87,11 @@ const FilterSizeOption = styled.option``
 const Amount = styled.span`
   width: 30px;
   height: 30px;
-  border-radius: 10px;
-  border: 1px solid teal;
   diaplay: flex;
   align-item: center;
   justify-content: center;
-  margin: 0px 5px;
+  margin: 0px 10px;
+  padding: 5px;
 `
 
 const AmountContainer = styled.div`
@@ -116,6 +113,7 @@ const Button = styled.button`
   border: 3px solid teal;
   bacground-color: white;
   cursor: pointer;
+  margin-top: 15px;
   font-weight: 550;
   &:hover {
     bacground-color: red;
@@ -130,6 +128,8 @@ const Product = () => {
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
   const dispatch = useDispatch();
+
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
 
   useEffect(() => {
     const getProduct = async () => {

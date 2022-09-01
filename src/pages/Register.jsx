@@ -83,6 +83,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [cpassword, setcPassword] = useState("");
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
 
@@ -91,8 +92,12 @@ const Register = () => {
     if (username === "" || password === "" || firstname === "" || lastname === "" || email === "") {
       return false;
     }
-    
-    register(dispatch, { username, password, firstname, lastname, email });
+
+    if(password !== cpassword) {
+      alert("password and confirm password are not the same...");
+    } else {
+      register(dispatch, { username, password, firstname, lastname, email });
+    }
   };
 
   return (
@@ -121,7 +126,7 @@ const Register = () => {
           <Input 
             placeholder="confirm password"
             type="password"
-            onChange={(e) => setPassword(e.target.value)} />
+            onChange={(e) => setcPassword(e.target.value)} />
           <Agreement>
             By creating an account, I consent to the processing of my personal
             data.

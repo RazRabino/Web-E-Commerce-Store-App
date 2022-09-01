@@ -9,8 +9,6 @@ import { useSelector } from "react-redux";
 import {BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 const App = () => {
-  //TODO: check why everything is slow and pages somtimes loading without design
-
   const user = useSelector((state) => state.user.currentUser)
   
   return (
@@ -28,3 +26,5 @@ const App = () => {
   )
 };
 export default App;
+
+// TODO: put some real data in store and in its all components

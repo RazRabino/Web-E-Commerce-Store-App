@@ -3,6 +3,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import { sliderItems } from "./data";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -95,8 +96,6 @@ const Slider = () => {
     }
   };
 
-  //TODO: make slider buy now button redirect to actual products and "steal" it's information for the slider.
-
   return (
     <Container>
       <Arrow direction="left" onClick={() => handleClick("left")}>
@@ -112,7 +111,10 @@ const Slider = () => {
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>Buy Now!</Button>
+              
+              <Link to="/" style={{ textDecoration: 'none'}}>
+                      <Button>Shop Sale Category</Button>
+                    </Link>
             </InfoContainer>
           </Slide>
         ))}
