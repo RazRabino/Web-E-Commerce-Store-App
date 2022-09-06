@@ -26,5 +26,3 @@ const App = () => {
   )
 };
 export default App;
-
-// TODO: put some real data in store and in its all components
